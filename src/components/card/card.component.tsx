@@ -10,13 +10,13 @@ function CardComponent({ item }:{item:any}) {
   return (
     <Grid
       container
-      maxWidth="400px"
+      minWidth="300px"
       direction="row"
-      justifyContent="center"
+      justifyContent="flex-start"
       alignItems="center"
     >
       <Grid
-        xs={2}
+        width="30%"
         item
       >
         <Avatar
@@ -25,9 +25,9 @@ function CardComponent({ item }:{item:any}) {
         />
       </Grid>
       <Grid
-        xs={10}
         item
         container
+        width="70%"
         direction="column"
         alignItems="flex-start"
       >

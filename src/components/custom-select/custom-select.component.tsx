@@ -5,7 +5,7 @@ import React from 'react';
 
 function CustomSelectComponent(props: any) {
   const {
-    value, handleChange, displayOptions, label, helpText,
+    value, handleChange, displayOptions, helpText,
   } = props;
   return (
     <Grid
@@ -15,18 +15,17 @@ function CustomSelectComponent(props: any) {
     >
       <Select
         value={value as any}
-        label={label}
         size="small"
         onChange={handleChange}
+        variant="standard"
       >
         {displayOptions.map((option:any) => (
-          <MenuItem value={option}>{option}</MenuItem>
+          <MenuItem key={option} value={option}>{option}</MenuItem>
         ))}
       </Select>
       <FormHelperText>{helpText}</FormHelperText>
     </Grid>
   );
 }
-// Amount of users to display
 
 export default CustomSelectComponent;

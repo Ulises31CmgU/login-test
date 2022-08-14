@@ -10,11 +10,14 @@ export function CardPreviewComponent(props: any) {
     <Grid
       container
       direction="column"
-      justifyContent="center"
-      spacing={2}
+      justifyContent="space-between"
+      alignItems="center"
+      spacing={1}
     >
       {data.map((item: any) => (
-        <CardComponent key={item.id} item={item} />
+        <Grid item key={item.id}>
+          <CardComponent item={item} />
+        </Grid>
       ))}
     </Grid>
   );
