@@ -6,3 +6,4 @@ export { default as CardPreviewComponent } from './card-preview/card-preview.com
 export { default as LoginFormComponent } from './login-form/login-form.component';
 export { default as PaginationComponent } from './pagination/pagination.component';
 export { default as SnackbarComponent } from './snackbar/snackbar.component';
+export { default as CustomSelectComponent } from './custom-select/custom-select.component';
