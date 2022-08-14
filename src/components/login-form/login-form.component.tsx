@@ -1,10 +1,11 @@
 /* eslint-disable import/no-unresolved */
-import React, { useState } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoadingButton from '@mui/lab/LoadingButton';
 
+import { Grid, Typography } from '@mui/material';
 import { yupUserOptions } from '../../app/yup.options';
 
 import { CustomTextInputComponent } from '..';
@@ -12,12 +13,10 @@ import { loginRequest } from '../../app/slices/user.slice';
 
 export function LoginFormComponent() {
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
+  const requesting = useSelector((state:any) => state.user.isRequesting);
 
-  const handleSubmit = async (values: any) => {
-    setLoading(true);
-    await dispatch(loginRequest(values));
-    setLoading(false);
+  const handleSubmit = (values: any) => {
+    dispatch(loginRequest(values));
   };
 
   return (
@@ -37,25 +36,40 @@ export function LoginFormComponent() {
       }}
     >
       <Form>
-        <CustomTextInputComponent
-          label="Email"
-          name="email"
-          type="text"
-          required
-        />
-        <CustomTextInputComponent
-          label="Password"
-          name="password"
-          type="password"
-          required
-        />
-        <LoadingButton
-          loading={loading}
-          variant="contained"
-          type="submit"
-        >
-          Login
-        </LoadingButton>
+        <Grid container spacing={2} direction="column">
+          <Grid item>
+            <Typography variant="h6">
+              Please login with your email and password.
+            </Typography>
+          </Grid>
+          <Grid item>
+            <CustomTextInputComponent
+              label="Email"
+              name="email"
+              type="text"
+              required
+              margin="normal"
+            />
+          </Grid>
+          <Grid item>
+            <CustomTextInputComponent
+              label="Password"
+              name="password"
+              type="password"
+              required
+              margin="normal"
+            />
+          </Grid>
+          <Grid item>
+            <LoadingButton
+              loading={requesting}
+              variant="contained"
+              type="submit"
+            >
+              Login
+            </LoadingButton>
+          </Grid>
+        </Grid>
       </Form>
     </Formik>
   );
