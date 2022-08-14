@@ -1,14 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+import React from 'react';
 
-export const LoginPageComponent = (props: any) => {
+import { LoginFormComponent } from '../../components';
+
+function LoginPageComponent() {
   return (
-    <div>LoginPageComponent</div>
-  )
+    <div>
+      <img src="" alt="" />
+      <LoginFormComponent />
+    </div>
+  );
 }
 
-const mapStateToProps = (state: any) => ({})
-
-const mapDispatchToProps = {}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPageComponent)
+export default LoginPageComponent;
