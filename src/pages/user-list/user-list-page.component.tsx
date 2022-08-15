@@ -24,6 +24,7 @@ function UserListPageComponent() {
   const userDisplayOptions = [1, 2, 3, 4, 5, 6];
   const handleSelectChange = (event:any) => {
     setDataPerPage(event.target.value);
+    setCurrentPage(1);
   };
 
   useEffect(() => {
